@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-gcpnschf-gitops
+  description: This is GitOps manifest for python-gcpnschf   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-gcpnschf
+    backstage.io/kubernetes-id: python-gcpnschf 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-gcpnschf
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-gcpnschf
